@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 700px;
+  border-radius: 3%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .loginText {
+    color: white;
+  }
+
+  .icon {
+    width: 10%;
+    height: 10%;
+    margin-top: 100px;
+    margin-bottom: 20px;
+  }
+}
+
+.socialLogin_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+
+  .line {
+    background-color: white;
+    width: 35%;
+    height: 1px;
+    display: inline-block;
+    opacity: 0.2;
+  }
+
+  .socialLogin_text {
+    color: white;
+    width: 30%;
+    text-align: center;
+  }
+}
+
+.errorView {
+  color: #e3242b;
+  text-align: center;
+  margin-top: 10px;
+}

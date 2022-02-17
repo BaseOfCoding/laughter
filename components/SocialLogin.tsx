@@ -2,8 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Link from "next/link";
+import socialLoginStyle from "../moduleStyles/SocialLogin.module.scss";
 
-export default function SocialLogin({ setError }: any) {
+export default function SocialLogin({ setError, setNewAccount, newAccount }: any) {
   const onSocialClick = (e: any) => {
     const {
       target: { name },
@@ -28,45 +29,28 @@ export default function SocialLogin({ setError }: any) {
       });
   };
 
+  const accountClick = () => setNewAccount((prev: any) => !prev);
+
   return (
     <>
-      <div className="social-buttons">
-        <button className="social-button" onClick={onSocialClick} name="google">
+      <div className={socialLoginStyle.social_buttonGroup}>
+        <button className={socialLoginStyle.button} onClick={onSocialClick} name="google">
           <FontAwesomeIcon icon={faGoogle} />
           <span style={{ marginLeft: 10 }}>Continue with Google</span>
         </button>
-        <button className="social-button" onClick={onSocialClick} name="github">
+        <button className={socialLoginStyle.button} onClick={onSocialClick} name="github">
           <FontAwesomeIcon icon={faGithub} />
           <span style={{ marginLeft: 10 }}>Continue with Github</span>
         </button>
       </div>
       <div style={{ marginTop: 10 }}>
-        <span style={{ color: "white", fontWeight: "bold", marginRight: 10 }}>계정이 없나요?</span>
-        <Link href="/signup">
-          <a>
-            <span style={{ color: "skyblue", fontWeight: "bold" }}>가입하기</span>
-          </a>
-        </Link>
+        <span className={socialLoginStyle.account_question}>
+          {newAccount ? "계정이 있으신가요?" : "계정이 없나요?"}
+        </span>
+        <span onClick={accountClick} className={socialLoginStyle.account_button}>
+          {newAccount ? "로그인 하기" : "가입 하기"}
+        </span>
       </div>
-      <style jsx>{`
-        .social-buttons {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          width: 80%;
-        }
-
-        .social-button {
-          width: 100%;
-          height: 50px;
-          margin-bottom: 20px;
-          border-radius: 70px;
-          border: none;
-          font-weight: 700;
-          font-size: 16px;
-          text-align: center;
-        }
-      `}</style>
     </>
   );
 }
