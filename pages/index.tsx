@@ -20,7 +20,7 @@ function Home({ pathItem }: any) {
         loginCheck()
       ) : (
         <>
-          <Seo title="로그인" />
+          <Seo title="Login" />
           <div className={indexStyle.container}>
             <img className={indexStyle.icon} src="/icons/laughter_white.png" />
             <h3 className={indexStyle.loginText}>{newAccount ? "래프터에 가입하기" : "래프터에 로그인하기"}</h3>

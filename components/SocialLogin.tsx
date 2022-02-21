@@ -22,6 +22,7 @@ export default function SocialLogin({ setError, setNewAccount, newAccount }: any
         console.log(result.user);
       })
       .catch((error) => {
+        console.error("social login error : ", error);
         setError("소셜 로그인에 실패하셨습니다.");
         setTimeout(() => {
           setError("");

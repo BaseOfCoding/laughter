@@ -1,0 +1,17 @@
+.group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 400px;
+
+  .title {
+    width: 128px;
+    height: 90px;
+  }
+
+  .userIcon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+}
