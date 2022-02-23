@@ -15,3 +15,15 @@
     border-radius: 50%;
   }
 }
+
+@media screen and (max-width: 1439px) {
+  .group {
+    margin: 0px 200px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .group {
+    margin: 0px 20px;
+  }
+}

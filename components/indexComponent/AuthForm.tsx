@@ -1,8 +1,7 @@
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import authFormStyle from "../moduleStyles/AuthForm.module.scss";
 
-export default function AuthForm({ setError, newAccount, setNewAccount }: any) {
+export default function AuthForm({ setError, newAccount, setNewAccount, styles }: any) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -47,9 +46,9 @@ export default function AuthForm({ setError, newAccount, setNewAccount }: any) {
 
   return (
     <>
-      <form onSubmit={onSubmit} className={authFormStyle.inputGroup}>
+      <form onSubmit={onSubmit} className={styles.inputGroup}>
         <input
-          className={authFormStyle.input}
+          className={styles.input}
           name="email"
           type="email"
           placeholder="이메일을 입력하세요."
@@ -58,7 +57,7 @@ export default function AuthForm({ setError, newAccount, setNewAccount }: any) {
           onChange={onChange}
         />
         <input
-          className={authFormStyle.input}
+          className={styles.input}
           name="password"
           type="password"
           placeholder="패스워드를 입력하세요."
@@ -69,7 +68,7 @@ export default function AuthForm({ setError, newAccount, setNewAccount }: any) {
         <input
           type="submit"
           value={newAccount ? "가입하기" : "로그인"}
-          className={authFormStyle.submit}
+          className={styles.submit}
           style={{ cursor: "pointer" }}
         />
       </form>

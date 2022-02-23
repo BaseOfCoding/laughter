@@ -5,75 +5,153 @@
   border-right: 1px solid white;
 }
 
-.inputGroup {
+.laughter_group {
   display: flex;
-  width: 100%;
   border-bottom: 1px solid white;
   margin-top: 10px;
+}
 
-  .ig_user_icon {
-    width: 6%;
-    height: 6%;
-    border-radius: 50%;
-    margin-left: 20px;
+.lg_user_icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.lg_input_group {
+  margin-top: 10px;
+  width: 95%;
+}
+
+.lg_text_area {
+  width: 95%;
+  min-height: 160px;
+  background-color: #242d34;
+  border: none;
+  resize: none;
+  color: white;
+  font-size: 20px;
+  border-bottom: 1px solid gray;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.lg_media_box {
+  width: 85%;
+
+  label {
+    cursor: pointer;
+    margin-right: 10px;
+    color: skyblue;
+    font-size: 20px;
+  }
+
+  input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+.lg_laughButton {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  color: white;
+  background-color: skyblue;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 35px;
+}
+
+.lg_button_group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.lg_preview_group {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border-top: 1px solid white;
+
+  h4 {
+    color: white;
     margin-right: 10px;
   }
 
-  .ig_inputs {
+  .ig_media_preview_portrait {
     margin-top: 10px;
-    width: 95%;
-
-    textarea {
-      width: 95%;
-      min-height: 160px;
-      background-color: #242d34;
-      border: none;
-      resize: none;
-      color: white;
-      font-size: 20px;
-      border-bottom: 1px solid gray;
-
-      &:focus {
-        outline: none;
-      }
-    }
+    width: 150px;
+    height: 250px;
   }
 
-  .ig_button_group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
+  .ig_media_preview_landScape {
+    margin-top: 10px;
+    width: 250px;
+    height: 150px;
+  }
 
-    .ig_media_box {
-      label {
-        cursor: pointer;
-        margin-right: 10px;
-        color: skyblue;
-        font-size: 20px;
-      }
-      input[type="file"] {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-    }
+  .ig_media_preview_sameSize {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
+  }
 
-    button {
-      width: 10%;
-      height: 50px;
-      border-radius: 25px;
-      color: white;
-      background-color: skyblue;
-      font-weight: bold;
-      font-size: 16px;
-      margin-bottom: 20px;
-      margin-right: 20px;
-    }
+  button {
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 7px;
+    color: white;
+    background-color: skyblue;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+// media query
+
+@media screen and (max-width: 1439px) {
+  .group {
+    margin: 0px 200px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .group {
+    margin: 0px 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .lg_user_icon {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .lg_text_area {
+    font-size: 16px;
+    min-height: 120px;
+  }
+
+  .lg_laughButton {
+    font-size: 14px;
+    margin-right: 10px;
   }
 }

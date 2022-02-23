@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { app } from "../components/firebaseInstance";
 import Seo from "../components/Seo";
-import AuthForm from "../components/AuthForm";
-import SocialLogin from "../components/SocialLogin";
-import indexStyle from "../moduleStyles/index.module.scss";
+import AuthForm from "../components/indexComponent/AuthForm";
+import SocialLogin from "../components/indexComponent/SocialLogin";
+import styles from "/moduleStyles/index.module.scss";
 import Router from "next/router";
 
 function Home({ pathItem }: any) {
@@ -21,17 +21,17 @@ function Home({ pathItem }: any) {
       ) : (
         <>
           <Seo title="Login" />
-          <div className={indexStyle.container}>
-            <img className={indexStyle.icon} src="/icons/laughter_white.png" />
-            <h3 className={indexStyle.loginText}>{newAccount ? "래프터에 가입하기" : "래프터에 로그인하기"}</h3>
-            <AuthForm setError={setError} newAccount={newAccount} setNewAccount={setNewAccount} />
-            <div className={indexStyle.socialLogin_div}>
-              <div className={indexStyle.line}></div>
-              <h4 className={indexStyle.socialLogin_text}>소셜 로그인하기</h4>
-              <div className={indexStyle.line}></div>
+          <div className={styles.container}>
+            <img className={styles.icon} src="/icons/laughter_white.png" />
+            <h3 className={styles.loginText}>{newAccount ? "래프터에 가입하기" : "래프터에 로그인하기"}</h3>
+            <AuthForm setError={setError} newAccount={newAccount} setNewAccount={setNewAccount} styles={styles} />
+            <div className={styles.socialLogin_div}>
+              <div className={styles.line}></div>
+              <h4 className={styles.socialLogin_text}>소셜 로그인하기</h4>
+              <div className={styles.line}></div>
             </div>
-            <SocialLogin setError={setError} setNewAccount={setNewAccount} newAccount={newAccount} />
-            <div className={indexStyle.errorView}>{error}</div>
+            <SocialLogin setError={setError} setNewAccount={setNewAccount} newAccount={newAccount} styles={styles} />
+            <div className={styles.errorView}>{error}</div>
           </div>
         </>
       )}
