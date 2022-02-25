@@ -97,6 +97,8 @@ export function LaughterFactory({ styles, userObj }: any) {
       text: laughter,
       createdAt: Date.now(),
       creatorID: userObj.uid,
+      photoURL: userObj.photoURL,
+      displayName: userObj.displayName,
       fileUrl,
     };
 
