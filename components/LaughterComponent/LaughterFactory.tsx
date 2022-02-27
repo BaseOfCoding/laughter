@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { addDoc, collection, CollectionReference, DocumentData, getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
 import { v4 as uuidV4 } from "uuid";
+import { FileChangeInstance } from "../FileChangeInstance";
 
 export function LaughterFactory({ styles, userObj }: any) {
   const [laughter, setLaughter] = useState("");

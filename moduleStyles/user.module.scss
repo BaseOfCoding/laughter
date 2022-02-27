@@ -1,0 +1,94 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 400px;
+}
+
+.displayNameBackGround {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
+.displayName {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.laugherQuantity {
+  color: gray;
+  font-size: 14px;
+}
+
+.displayName_Button {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.displayChange_group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.displayChange_input {
+  width: 400px;
+  height: 35px;
+  background-color: skyblue;
+  border: none;
+  font-size: 16px;
+  color: white;
+}
+
+.userIcon {
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.infos {
+  label {
+    cursor: pointer;
+    margin-right: 10px;
+    color: skyblue;
+    font-size: 20px;
+  }
+
+  input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .group {
+    margin: 0px 200px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .group {
+    margin: 0px 20px;
+  }
+}

@@ -129,13 +129,13 @@
   display: flex;
   border-bottom: 1px solid white;
   padding-bottom: 20px;
+}
 
-  .lv_user_icon {
-    width: 50px;
-    height: 50px;
-    margin: 20px 20px;
-    border-radius: 50%;
-  }
+.lv_user_icon {
+  width: 50px;
+  height: 50px;
+  margin: 20px 20px;
+  border-radius: 50%;
 }
 
 .lv_laughter_group {
@@ -143,60 +143,60 @@
   flex-direction: column;
   margin-top: 20px;
   width: 85%;
+}
 
-  .lv_laughter_infos {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
+.lv_laughter_infos {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
 
-    .lv_displayName {
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-    }
+.lv_displayName {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
 
-    .lv_day {
-      color: gray;
-      font-size: 14px;
-    }
-  }
+.lv_day {
+  color: gray;
+  font-size: 14px;
+}
 
-  .lv_laughter {
-    color: whitesmoke;
-    font-size: 16px;
-    white-space: pre;
-    line-height: 1.4;
-  }
+.lv_laughter {
+  color: whitesmoke;
+  font-size: 16px;
+  white-space: pre;
+  line-height: 1.4;
+}
 
-  .lv_file_button {
-    margin-top: 20px;
-    background-color: transparent;
-    width: 90%;
-    max-height: 300px;
-    padding: 0;
+.lv_file_button {
+  margin-top: 20px;
+  background-color: transparent;
+  width: 90%;
+  max-height: 300px;
+  padding: 0;
+}
 
-    .lv_file {
-      border-radius: 10px;
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-  }
+.lv_file {
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-  .lv_ownerButtons {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-right: 20px;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid white;
+.lv_ownerButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid white;
+}
 
-    .lv_owner_button {
-      font-size: 16px;
-      background-color: transparent;
-    }
-  }
+.lv_owner_button {
+  font-size: 16px;
+  background-color: transparent;
 }
 
 .lv_modify_textarea {
@@ -207,10 +207,29 @@
   resize: none;
   color: white;
   font-size: 20px;
-  border-bottom: 1px solid gray;
 
   &:focus {
     outline: none;
+  }
+}
+
+.lv_media_box {
+  label {
+    cursor: pointer;
+    margin-right: 10px;
+    color: skyblue;
+    font-size: 20px;
+  }
+
+  input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
 }
 
@@ -242,5 +261,11 @@
   .lg_laughButton {
     font-size: 14px;
     margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 10000px) and (min-width: 1400px) {
+  .lv_file_button {
+    max-height: 1000px;
   }
 }
