@@ -5,12 +5,13 @@ import { faTrashCan, faPenToSquare, faXmark, faImages } from "@fortawesome/free-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { deleteDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
-import { deleteObject, getStorage, ref } from "firebase/storage";
+import { deleteObject, getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
+import { v4 as uuidV4 } from "uuid";
 
 dayjs.extend(relativeTime);
 dayjs.locale("ko");
 
-export function LaughterView({ data, isOwner, laughID, styles }: any) {
+export function LaughterView({ data, isOwner, laughID, styles, userObj }: any) {
   const [editing, setEditing] = useState(false);
   const [newLaughter, setNewLaughter] = useState("");
   const [newMedia, setNewMedia] = useState("");
@@ -43,38 +44,61 @@ export function LaughterView({ data, isOwner, laughID, styles }: any) {
 
   const onEditConfirm = () => {
     let ok;
+    let fileUrl = "";
+
     if (newMedia || newLaughter) {
       ok = window.confirm("수정 하시겠습니까?");
     }
 
-    if (ok) {
-      let object;
-      if (newMedia && !newLaughter) {
-        object = {
-          fileUrl: newMedia,
-        };
-      } else if (!newMedia && newLaughter) {
-        object = {
-          text: newLaughter,
-        };
-      } else {
-        object = {
-          text: newLaughter,
-          fileUrl: newMedia,
-        };
-      }
-
-      const updateLaughter = doc(getFirestore(), `laughters/${laughID}`);
-      updateDoc(updateLaughter, object)
+    if (newMedia) {
+      const storageRef = ref(getStorage(), `${userObj.uid}/${uuidV4()}`);
+      uploadString(storageRef, newMedia, "data_url")
         .then((result) => {
-          setEditing(false);
-          setNewMedia("");
-          setNewLaughter("");
+          getDownloadURL(storageRef)
+            .then((result) => {
+              fileUrl = result;
+              updatedoc(fileUrl);
+            })
+            .catch((error) => {
+              console.error("get download URL error : ", error);
+            });
         })
         .catch((error) => {
-          console.error("modify error : ", error);
+          console.error("modify data url error : ", error);
         });
+    } else {
+      updatedoc(fileUrl);
     }
+  };
+
+  const updatedoc = (fileUrl: string) => {
+    let object;
+
+    if (fileUrl == "") {
+      object = {
+        text: newLaughter,
+      };
+    } else if (fileUrl != "" && !newLaughter) {
+      object = {
+        fileUrl,
+      };
+    } else {
+      object = {
+        fileUrl,
+        text: newLaughter,
+      };
+    }
+
+    const updateLaughter = doc(getFirestore(), `laughters/${laughID}`);
+    updateDoc(updateLaughter, object)
+      .then((result) => {
+        setEditing(false);
+        setNewMedia("");
+        setNewLaughter("");
+      })
+      .catch((error) => {
+        console.error("modify error : ", error);
+      });
   };
 
   const onLaughterChange = (e: any) => {
@@ -112,6 +136,7 @@ export function LaughterView({ data, isOwner, laughID, styles }: any) {
       };
 
       setNewMedia(result);
+      e.target.value = "";
     };
     reader.readAsDataURL(theFiles);
   };

@@ -69,8 +69,8 @@ export function LaughterFactory({ styles, userObj }: any) {
           setSameImageSize(false);
         }
       };
-
       setMedia(result);
+      e.target.value = "";
     };
     reader.readAsDataURL(theFiles);
   };

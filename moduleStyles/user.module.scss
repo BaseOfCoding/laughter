@@ -46,7 +46,7 @@
 }
 
 .displayChange_input {
-  width: 400px;
+  width: 60%;
   height: 35px;
   background-color: skyblue;
   border: none;
@@ -90,5 +90,17 @@
 @media screen and (max-width: 1000px) {
   .group {
     margin: 0px 20px;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .displayName_Button {
+    width: 80px;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .displayChange_input {
+    width: 70%;
   }
 }

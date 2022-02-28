@@ -49,6 +49,7 @@ export default function Laughter({ pathItem }: any) {
                   isOwner={laugh.data.creatorID == userObj.uid}
                   laughID={laugh.id}
                   styles={styles}
+                  userObj={userObj}
                 />
               ))}
             </div>
