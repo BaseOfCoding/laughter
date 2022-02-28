@@ -7,6 +7,7 @@ import { useState } from "react";
 import { deleteDoc, doc, getFirestore, updateDoc } from "firebase/firestore";
 import { deleteObject, getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
 import { v4 as uuidV4 } from "uuid";
+import Link from "next/link";
 
 dayjs.extend(relativeTime);
 dayjs.locale("ko");
@@ -216,9 +217,11 @@ export function LaughterView({ data, isOwner, laughID, styles, userObj }: any) {
               <div className={styles.lv_laughter}>{data.text}</div>
 
               {data.fileUrl && (
-                <button className={styles.lv_file_button}>
-                  <img className={styles.lv_file} src={data.fileUrl} />
-                </button>
+                <Link href={data.fileUrl}>
+                  <a className={styles.lv_file_button} target="_blank">
+                    <img className={styles.lv_file} src={data.fileUrl} />
+                  </a>
+                </Link>
               )}
 
               {isOwner && (

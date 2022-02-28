@@ -23,6 +23,10 @@ export function LaughterFactory({ styles, userObj }: any) {
   const onLaugh = () => {
     let fileUrl = "";
 
+    if (!laughter && !media) {
+      return;
+    }
+
     if (media != "") {
       const storageRef = ref(getStorage(), `${userObj.uid}/${uuidV4()}`);
       uploadString(storageRef, media, "data_url")
